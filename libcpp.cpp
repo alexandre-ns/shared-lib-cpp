@@ -5,8 +5,8 @@
 #include <string>
 #include <regex>
 #include <set>
-#include <cstring>  // Para std::strtok e std::strlen
-#include <cstdlib>  // Para std::malloc e std::free
+#include <cstring>
+#include <cstdlib>
 #include "libcpp.h"
 
 extern "C" {
