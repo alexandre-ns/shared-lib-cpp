@@ -1,10 +1,10 @@
 #!/bin/sh
 
-#compiles libcpp.cpp file -fpic (position independent code, PIC)
-g++ -c -fpic libcpp.cpp -o libcpp.o
-
-#shared lib
-g++ -shared -Wl,-soname,libcpp.so.1 -o libcpp.so.1.0 libcpp.o
+#compiles libcpp.cpp file -fpic (position independent code, PIC) and share lib
+g++ -fPIC -shared -o libcpp.so libcpp.cpp
 
 #compile the file main.c and link the library
-gcc -o main main.c -L. -lcpp -Wl,-rpath=.
+gcc -o main main.c -L. -lcpp
+
+#includ dir lib
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
